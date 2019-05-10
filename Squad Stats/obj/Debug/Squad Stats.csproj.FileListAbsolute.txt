@@ -1,0 +1,14 @@
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\Squad Stats.exe.config
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\Squad Stats.exe
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\Squad Stats.pdb
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.csprojAssemblyReference.cache
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad_Stats.Form1.resources
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad_Stats.Properties.Resources.resources
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.csproj.GenerateResource.cache
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.csproj.CoreCompileInputs.cache
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.exe
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.pdb
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.csproj.CopyComplete
