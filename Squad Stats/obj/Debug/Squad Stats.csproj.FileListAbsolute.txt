@@ -12,3 +12,19 @@ C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\HtmlAgilityPack.dll
 C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\HtmlAgilityPack.pdb
 C:\Users\Josh\source\repos\Squad Stats\Squad Stats\bin\Debug\HtmlAgilityPack.xml
 C:\Users\Josh\source\repos\Squad Stats\Squad Stats\obj\Debug\Squad Stats.csproj.CopyComplete
+C:\Repos\SquadStats\Squad Stats\bin\Debug\Squad Stats.exe.config
+C:\Repos\SquadStats\Squad Stats\bin\Debug\Squad Stats.exe
+C:\Repos\SquadStats\Squad Stats\bin\Debug\Squad Stats.pdb
+C:\Repos\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.dll
+C:\Repos\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.pdb
+C:\Repos\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.xml
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.csprojResolveAssemblyReference.cache
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad_Stats.Form1.resources
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad_Stats.Properties.Resources.resources
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.GenerateResource.Cache
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.CoreCompileInputs.cache
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.exe
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.pdb
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad_Stats.playerSelectForm.resources
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Interop.VSTOEE100.dll
+C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.ResolveComReference.cache

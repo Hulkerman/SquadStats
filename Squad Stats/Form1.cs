@@ -13,6 +13,7 @@ namespace Squad_Stats
     public partial class Form1 : Form
     {
         Request request = new Request();
+        SquadExcel excel = new SquadExcel();
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +21,9 @@ namespace Squad_Stats
 
         private void RequestStatsButton_Click(object sender, EventArgs e)
         {
-            request.getCsgoStatsHtml(csgoStatsUrlTextBox.Text);
+            request.getCsgoStatsHtml();
+            var playerSelector = new playerSelectForm(request, excel);
+            playerSelector.ShowDialog();
         }
     }
 }
