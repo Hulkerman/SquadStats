@@ -1,2 +1,2 @@
 # SquadStats
-Automatic Statreader and Transformer for csgostas.gg
+Automatic Statreader and Transformer for csgostats.gg
