@@ -1,68 +1,108 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
 using System.IO;
-using System.Xml;
 using HtmlAgilityPack;
+using System.Windows.Forms;
+using System.Linq;
+using System.Collections;
 
 namespace Squad_Stats
 {
     public class Request
     {
-        List<string> m_playerList = new List<string>();
-        string[,] m_scoreArray = new string[10, 32];
+        List<string> m_matchList = new List<string>();
+        List<object> m_matchPlayersList = new List<object>();
+        string[,] m_scoreArray = new string[10, 34];
+        int m_numberOfValues = 34;
+
         public Request()
         {
             return;
         }
 
-        public List<string> getPlayerList()
+        public void DoSetup()
         {
-            return m_playerList;
-        }
-
-        public string[,] getScoreArray()
-        {
-            return m_scoreArray;
-        }
-        public void getCsgoStatsHtml()
-        {
-
-            var path = "C:/SquadStats_html_files/test.html";
-            var doc = new HtmlDocument();
-            int numberOfValues = 33;
-
-            doc.Load(path);
-            var stats = doc.DocumentNode.SelectNodes("//a[@class='player-link']/span | //a[@class='player-link']/parent::td/following-sibling::td[1]/following-sibling::td");
-            
-            int statNumber = 0, playerNumber = -1;
-            foreach (var stat in stats)
+            if (!Directory.Exists(@"C:\\squadstats"))
+                Directory.CreateDirectory(@"C:\\squadstats");
+            if (!Directory.Exists(@"C:\\squadstats\\excel"))
+                Directory.CreateDirectory(@"C:\\squadstats\\excel");
+            if (!Directory.Exists(@"C:\\squadstats\\archive"))
+                Directory.CreateDirectory(@"C:\\squadstats\\archive");
+            foreach (string file in Directory.GetFiles(@"C:\\squadstats"))
             {
-                if (statNumber < numberOfValues){
-                    Console.Write(stat.InnerHtml.Trim() + " ");
-                    if (statNumber == 0)
+                if (Path.GetExtension(file) == ".html")
+                {
+                    m_matchList.Add(file);
+                }
+            }
+        }
+
+        public List<string> GetMatchListTrimmed()
+        {
+            List<string> m_matchListTrimmed = new List<string>();
+            foreach (string match in m_matchList)
+            {
+                m_matchListTrimmed.Add(Path.GetFileName(match).Substring(27,Path.GetFileName(match).Length - 32));
+            }
+            return m_matchListTrimmed;
+        }
+
+        public List<object> GetMatchPlayersList()
+        {
+            return m_matchPlayersList;
+        }
+        public void GetCsgoStatsHtml()
+        {
+            int matchNumber = 0, statNumber = 0, playerNumber = 0;
+            foreach (string htmlFile in m_matchList.ToList())
+            {
+                playerNumber = 0;
+                var doc = new HtmlAgilityPack.HtmlDocument();
+                doc.Load(htmlFile);
+                var stats = doc.DocumentNode.SelectNodes("//a[@class='player-link']/span | //a[@class='player-link']/parent::td/following-sibling::td[1]/following-sibling::td");
+                if (stats != null)
+                {
+                    statNumber = 0;
+                    foreach (var stat in stats)
                     {
-                        playerNumber++;
-                        m_playerList.Add(stat.InnerHtml.Trim());
-                        Console.Write("\n");
+                        if (statNumber == m_numberOfValues)
+                        {
+                            playerNumber++;
+                            statNumber = 0;
+                        }
+                        m_scoreArray[playerNumber, statNumber] = stat.InnerHtml.Trim();
+                        statNumber++;
                     }
-                    else
-                    {
-                        m_scoreArray[playerNumber, statNumber - 1] = stat.InnerHtml.Trim();
-                    }
-                    statNumber++;
                 }
                 else
                 {
-                    statNumber = 0;
-                    Console.Write("\n\n");
+                    MessageBox.Show("File \"" + htmlFile + "\" could not be read.\nAre you sure it's a proper html file from csgostats.gg?");
+                    m_matchList.Remove(htmlFile);
+                    goto endForeach;
                 }
+                m_matchPlayersList.Add(m_scoreArray.Clone());
+                matchNumber++;
+                endForeach:;
             }
 
             Console.WriteLine("done!\n");
+        }
+
+        public List<object> GetSpecificScoreArrayList(int _matchNumber, List<int> _playerNumbers)
+        {
+            List<object> specificScoreArrayList = new List<object>();
+            string[,] currentMatchScoreArray = m_matchPlayersList[_matchNumber] as string[,];
+            string[] currentPlayerScoreArray = new string[currentMatchScoreArray.Length/10];
+
+            foreach (int playerNumber in _playerNumbers)
+            {
+                for (int i = 0; i < currentMatchScoreArray.Length/10; i++)
+                {
+                    currentPlayerScoreArray[i] = currentMatchScoreArray[playerNumber, i];
+                }
+                specificScoreArrayList.Add(currentPlayerScoreArray.Clone());
+            }
+            return specificScoreArrayList;
         }
     }
 }

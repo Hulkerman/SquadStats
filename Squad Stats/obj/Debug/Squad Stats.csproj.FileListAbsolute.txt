@@ -28,3 +28,20 @@ C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.pdb
 C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad_Stats.playerSelectForm.resources
 C:\Repos\SquadStats\Squad Stats\obj\Debug\Interop.VSTOEE100.dll
 C:\Repos\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.ResolveComReference.cache
+C:\Projects\SquadStats\Squad Stats\bin\Debug\Squad Stats.exe.config
+C:\Projects\SquadStats\Squad Stats\bin\Debug\Squad Stats.exe
+C:\Projects\SquadStats\Squad Stats\bin\Debug\Squad Stats.pdb
+C:\Projects\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.dll
+C:\Projects\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.pdb
+C:\Projects\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.xml
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csprojAssemblyReference.cache
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Interop.VSTOEE100.dll
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.ResolveComReference.cache
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad_Stats.Form1.resources
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad_Stats.Properties.Resources.resources
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad_Stats.playerSelectForm.resources
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.GenerateResource.cache
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.CoreCompileInputs.cache
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.CopyComplete
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.exe
+C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.pdb

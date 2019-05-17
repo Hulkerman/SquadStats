@@ -50,12 +50,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.grp_playerCombos = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_extract = new System.Windows.Forms.Button();
+            this.cmb_match = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.grp_playerCombos.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_player1
             // 
+            this.cmb_player1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player1.FormattingEnabled = true;
             this.cmb_player1.Location = new System.Drawing.Point(27, 19);
             this.cmb_player1.Name = "cmb_player1";
@@ -64,6 +67,7 @@
             // 
             // cmb_player2
             // 
+            this.cmb_player2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player2.FormattingEnabled = true;
             this.cmb_player2.Location = new System.Drawing.Point(27, 46);
             this.cmb_player2.Name = "cmb_player2";
@@ -72,6 +76,7 @@
             // 
             // cmb_player3
             // 
+            this.cmb_player3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player3.FormattingEnabled = true;
             this.cmb_player3.Location = new System.Drawing.Point(27, 73);
             this.cmb_player3.Name = "cmb_player3";
@@ -80,6 +85,7 @@
             // 
             // cmb_player5
             // 
+            this.cmb_player5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player5.FormattingEnabled = true;
             this.cmb_player5.Location = new System.Drawing.Point(27, 127);
             this.cmb_player5.Name = "cmb_player5";
@@ -88,6 +94,7 @@
             // 
             // cmb_player4
             // 
+            this.cmb_player4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player4.FormattingEnabled = true;
             this.cmb_player4.Location = new System.Drawing.Point(27, 100);
             this.cmb_player4.Name = "cmb_player4";
@@ -96,6 +103,7 @@
             // 
             // cmb_player9
             // 
+            this.cmb_player9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player9.FormattingEnabled = true;
             this.cmb_player9.Location = new System.Drawing.Point(27, 235);
             this.cmb_player9.Name = "cmb_player9";
@@ -104,6 +112,7 @@
             // 
             // cmb_player10
             // 
+            this.cmb_player10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player10.FormattingEnabled = true;
             this.cmb_player10.Location = new System.Drawing.Point(27, 262);
             this.cmb_player10.Name = "cmb_player10";
@@ -112,6 +121,7 @@
             // 
             // cmb_player8
             // 
+            this.cmb_player8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player8.FormattingEnabled = true;
             this.cmb_player8.Location = new System.Drawing.Point(27, 208);
             this.cmb_player8.Name = "cmb_player8";
@@ -120,6 +130,7 @@
             // 
             // cmb_player7
             // 
+            this.cmb_player7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player7.FormattingEnabled = true;
             this.cmb_player7.Location = new System.Drawing.Point(27, 181);
             this.cmb_player7.Name = "cmb_player7";
@@ -128,6 +139,7 @@
             // 
             // cmb_player6
             // 
+            this.cmb_player6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_player6.FormattingEnabled = true;
             this.cmb_player6.Location = new System.Drawing.Point(27, 154);
             this.cmb_player6.Name = "cmb_player6";
@@ -138,7 +150,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 26);
             this.label1.TabIndex = 10;
@@ -256,32 +268,58 @@
             this.grp_playerCombos.Controls.Add(this.label3);
             this.grp_playerCombos.Controls.Add(this.cmb_player9);
             this.grp_playerCombos.Controls.Add(this.label2);
-            this.grp_playerCombos.Location = new System.Drawing.Point(12, 38);
+            this.grp_playerCombos.Location = new System.Drawing.Point(12, 94);
             this.grp_playerCombos.Name = "grp_playerCombos";
             this.grp_playerCombos.Size = new System.Drawing.Size(252, 289);
             this.grp_playerCombos.TabIndex = 21;
             this.grp_playerCombos.TabStop = false;
             // 
-            // button1
+            // btn_extract
             // 
-            this.button1.Location = new System.Drawing.Point(12, 333);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(252, 30);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Extract!";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_extract.Location = new System.Drawing.Point(12, 389);
+            this.btn_extract.Name = "btn_extract";
+            this.btn_extract.Size = new System.Drawing.Size(252, 30);
+            this.btn_extract.TabIndex = 10;
+            this.btn_extract.Text = "Extract!";
+            this.btn_extract.UseVisualStyleBackColor = true;
+            this.btn_extract.Click += new System.EventHandler(this.btn_extract_Click);
+            // 
+            // cmb_match
+            // 
+            this.cmb_match.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_match.FormattingEnabled = true;
+            this.cmb_match.Location = new System.Drawing.Point(12, 25);
+            this.cmb_match.Name = "cmb_match";
+            this.cmb_match.Size = new System.Drawing.Size(252, 21);
+            this.cmb_match.TabIndex = 0;
+            this.cmb_match.SelectedIndexChanged += new System.EventHandler(this.Cmb_match_SelectedIndexChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.label12.Location = new System.Drawing.Point(12, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "Match";
             // 
             // playerSelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 375);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(276, 431);
+            this.Controls.Add(this.cmb_match);
+            this.Controls.Add(this.btn_extract);
             this.Controls.Add(this.grp_playerCombos);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "playerSelectForm";
             this.Text = "Player Selection";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayerSelectForm_FormClosed);
             this.grp_playerCombos.ResumeLayout(false);
             this.grp_playerCombos.PerformLayout();
             this.ResumeLayout(false);
@@ -313,6 +351,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox grp_playerCombos;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_extract;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cmb_match;
     }
 }
