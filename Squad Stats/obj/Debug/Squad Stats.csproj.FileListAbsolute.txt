@@ -34,7 +34,6 @@ C:\Projects\SquadStats\Squad Stats\bin\Debug\Squad Stats.pdb
 C:\Projects\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.dll
 C:\Projects\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.pdb
 C:\Projects\SquadStats\Squad Stats\bin\Debug\HtmlAgilityPack.xml
-C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csprojAssemblyReference.cache
 C:\Projects\SquadStats\Squad Stats\obj\Debug\Interop.VSTOEE100.dll
 C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad Stats.csproj.ResolveComReference.cache
 C:\Projects\SquadStats\Squad Stats\obj\Debug\Squad_Stats.Form1.resources

@@ -41,8 +41,8 @@ namespace Squad_Stats
             }
             if (m_matchList.Count == 0)
             {
-                MessageBox.Show("No matches found.\nIn order to export matches, save (ctrl + s) the csgostats.gg webpage of your analyzed match to the folder \"" + squadStatsDir + "\\\"\n\n" +
-                    "Pro Tip: When saving, save it as type \"Webpage, HTML Only\".", "No Matches Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("No matches found.\nIn order to export matches, save (ctrl + s) the csgostats.gg webpage of your analyzed match to the folder \"" + squadStatsDir + "\\\"\n\n" +
+                //    "Pro Tip: When saving, save it as type \"Webpage, HTML Only\".", "No Matches Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
