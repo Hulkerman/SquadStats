@@ -18,7 +18,8 @@ namespace Squad_Stats
         {
             InitializeComponent();
             request = _request;
-            request.DoSetup();
+            if (!request.DoSetup())
+                this.Close();
             request.GetCsgoStatsHtml();
             excel = _excel;
             m_MatchList = request.GetMatchListTrimmed();
@@ -43,9 +44,9 @@ namespace Squad_Stats
             }
             if (m_playerNumberList.Count != 0)
             {
-                excel.EnterStats(m_playerPosList, request.GetSpecificScoreArrayList(cmb_match.SelectedIndex, m_playerNumberList));
+                if (excel.EnterStats(m_playerPosList, request.GetSpecificScoreArrayList(cmb_match.SelectedIndex, m_playerNumberList)))
+                    request.MoveHtmlFileToArchive(cmb_match.SelectedIndex);
             }
-            request.MoveHtmlFileToArchive(cmb_match.SelectedIndex);
         }
 
         private void Cmb_match_SelectedIndexChanged(object sender, EventArgs e)

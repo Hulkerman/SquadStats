@@ -22,7 +22,11 @@ namespace Squad_Stats
         private void RequestStatsButton_Click(object sender, EventArgs e)
         {
             var playerSelector = new playerSelectForm(request, excel);
-            playerSelector.ShowDialog();
+            //try
+            //{
+                playerSelector.ShowDialog();
+            //}
+            //catch { }
         }
     }
 }

@@ -21,8 +21,11 @@ namespace Squad_Stats
             return;
         }
 
-        public void DoSetup()
+        public bool DoSetup()
         {
+            Array.Clear(m_scoreArray,0,m_scoreArray.Length);
+            m_matchList.Clear();
+            m_matchPlayersList.Clear();
             if (!Directory.Exists(squadStatsDir))
                 Directory.CreateDirectory(squadStatsDir);
             if (!Directory.Exists(squadStatsDir + @"\excel"))
@@ -36,6 +39,13 @@ namespace Squad_Stats
                     m_matchList.Add(file);
                 }
             }
+            if (m_matchList.Count == 0)
+            {
+                MessageBox.Show("No matches found.\nIn order to export matches, save (ctrl + s) the csgostats.gg webpage of your analyzed match to the folder \"" + squadStatsDir + "\\\"\n\n" +
+                    "Pro Tip: When saving, save it as type \"Webpage, HTML Only\".", "No Matches Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
         }
 
         public List<string> GetMatchListTrimmed()
@@ -77,7 +87,7 @@ namespace Squad_Stats
                 }
                 else
                 {
-                    MessageBox.Show("File \"" + htmlFile + "\" could not be read.\nAre you sure it's a proper html file from csgostats.gg?");
+                    MessageBox.Show("File \"" + htmlFile + "\" could not be read.\nAre you sure it's a proper html file from csgostats.gg?", "Invalid File", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     m_matchList.Remove(htmlFile);
                     goto endForeach;
                 }
@@ -85,8 +95,6 @@ namespace Squad_Stats
                 matchNumber++;
                 endForeach:;
             }
-
-            Console.WriteLine("done!\n");
         }
 
         public List<object> GetSpecificScoreArrayList(int _matchNumber, List<int> _playerNumbers)
@@ -108,7 +116,7 @@ namespace Squad_Stats
 
         public void MoveHtmlFileToArchive(int currentMapNumber)
         {
-            File.Move(m_matchList[currentMapNumber], squadStatsDir + @"\archive\" +  Directory.GetFiles(squadStatsDir).Length + "_" + GetMatchListTrimmed()[currentMapNumber] + ".html");
+            File.Move(m_matchList[currentMapNumber], squadStatsDir + @"\archive\" +  Directory.GetFiles(squadStatsDir + @"\archive\").Length + "_" + GetMatchListTrimmed()[currentMapNumber] + ".html");
         }
     }
 }
