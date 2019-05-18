@@ -14,6 +14,7 @@ namespace Squad_Stats
         List<object> m_matchPlayersList = new List<object>();
         string[,] m_scoreArray = new string[10, 34];
         int m_numberOfValues = 34;
+        string squadStatsDir = @"C:\squadstats";
 
         public Request()
         {
@@ -22,13 +23,13 @@ namespace Squad_Stats
 
         public void DoSetup()
         {
-            if (!Directory.Exists(@"C:\\squadstats"))
-                Directory.CreateDirectory(@"C:\\squadstats");
-            if (!Directory.Exists(@"C:\\squadstats\\excel"))
-                Directory.CreateDirectory(@"C:\\squadstats\\excel");
-            if (!Directory.Exists(@"C:\\squadstats\\archive"))
-                Directory.CreateDirectory(@"C:\\squadstats\\archive");
-            foreach (string file in Directory.GetFiles(@"C:\\squadstats"))
+            if (!Directory.Exists(squadStatsDir))
+                Directory.CreateDirectory(squadStatsDir);
+            if (!Directory.Exists(squadStatsDir + @"\excel"))
+                Directory.CreateDirectory(squadStatsDir + @"\excel");
+            if (!Directory.Exists(squadStatsDir + @"\archive"))
+                Directory.CreateDirectory(squadStatsDir + @"\archive");
+            foreach (string file in Directory.GetFiles(squadStatsDir))
             {
                 if (Path.GetExtension(file) == ".html")
                 {
@@ -39,12 +40,12 @@ namespace Squad_Stats
 
         public List<string> GetMatchListTrimmed()
         {
-            List<string> m_matchListTrimmed = new List<string>();
+            List<string> matchListTrimmed = new List<string>();
             foreach (string match in m_matchList)
             {
-                m_matchListTrimmed.Add(Path.GetFileName(match).Substring(27,Path.GetFileName(match).Length - 32));
+                matchListTrimmed.Add(Path.GetFileName(match).Substring(27,Path.GetFileName(match).Length - 32));
             }
-            return m_matchListTrimmed;
+            return matchListTrimmed;
         }
 
         public List<object> GetMatchPlayersList()
@@ -103,6 +104,11 @@ namespace Squad_Stats
                 specificScoreArrayList.Add(currentPlayerScoreArray.Clone());
             }
             return specificScoreArrayList;
+        }
+
+        public void MoveHtmlFileToArchive(int currentMapNumber)
+        {
+            File.Move(m_matchList[currentMapNumber], squadStatsDir + @"\archive\" +  Directory.GetFiles(squadStatsDir).Length + "_" + GetMatchListTrimmed()[currentMapNumber] + ".html");
         }
     }
 }

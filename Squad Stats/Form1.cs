@@ -17,12 +17,10 @@ namespace Squad_Stats
         public Form1()
         {
             InitializeComponent();
-            request.DoSetup();
         }
 
         private void RequestStatsButton_Click(object sender, EventArgs e)
         {
-            request.GetCsgoStatsHtml();
             var playerSelector = new playerSelectForm(request, excel);
             playerSelector.ShowDialog();
         }

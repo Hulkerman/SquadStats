@@ -11,27 +11,41 @@ namespace Squad_Stats
         static Excel.Application m_squadExcelApp;
         Excel.Workbook m_squadWorkbook;
         Excel.Worksheet m_entrySheet;
-        string m_excelFile = @"C:\squadstats\excel\copy_test2.xlsx";
+        string m_excelFile = @"C:\squadstats\excel\csgostats_entry.xlsx";
 
         public void DoSetup()
         {
             try
             {
                 m_squadExcelApp = new Excel.Application();
-                m_squadWorkbook = m_squadExcelApp.Workbooks.Open(m_excelFile);
-                m_entrySheet = m_squadExcelApp.Worksheets.Item[1] as Excel.Worksheet;
+                try
+                {
+                    m_squadWorkbook = m_squadExcelApp.Workbooks.Open(m_excelFile);
+                    m_entrySheet = m_squadExcelApp.Worksheets.Item[1] as Excel.Worksheet;
+                }
+                catch (Exception)
+                {
+                    if (m_squadExcelApp.Workbooks.Count == 0)
+                    {
+                        m_squadWorkbook = m_squadExcelApp.Workbooks.Add();
+                        m_entrySheet = m_squadExcelApp.Worksheets.Item[1] as Excel.Worksheet;
+                        CreateLegend();
+                        Save();
+                    }
+                    else
+                    {
+                        m_entrySheet = m_squadExcelApp.Worksheets.Item[1] as Excel.Worksheet;
+                    }
+                }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error while seting up excel.\nAre you missing the file \"" + m_excelFile + "\"?");
+                MessageBox.Show("Error while seting up excel.\nIt seems Excel isn't installed properly.\n\nOr maybe some other dumb shit. Who know honestly...");
             }
         }
 
         public void EnterStats(List<int> _playerPosList, List<object> _scoreArrayList)
         {
-            CreateLegend();
-
-            // TODO: Enter data from scoreArray
             int currentPlayerNumber = 0;
             foreach (int playerPos in _playerPosList)
             {
@@ -40,6 +54,7 @@ namespace Squad_Stats
             }
 
             Save();
+
         }
 
         private void CreateLegend()
@@ -92,9 +107,16 @@ namespace Squad_Stats
             m_entrySheet.Cells[21, _playerPos] = statsConvertedToArray[33];
         }
 
-        private void Save()
+        public void Save()
         {
-            m_squadWorkbook.SaveAs(m_excelFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            try
+            {
+                m_squadWorkbook.SaveAs(m_excelFile, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Excel.XlSaveAsAccessMode.xlExclusive, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error while saving Excel File", "Excel Error");
+            }
         }
 
         public void Quit()
@@ -106,7 +128,7 @@ namespace Squad_Stats
             }
             catch (Exception)
             {
-                // silence.
+                MessageBox.Show("Error while quitting Excel.", "Excel Error");
             }
         }
     }
